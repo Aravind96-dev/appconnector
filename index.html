@@ -35,16 +35,12 @@
 //          console.log(new Date().valueOf() - now > 1000) 
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
-        try{
-             window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
-        }catch(e){
-              if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-            }
-        }
+       var req = new XMLHttpRequest();  
+req.open('GET', 'http://www.example.org', true);  
+req.send();  
+if (req.status != "200") {
+    //  Error
+} 
         
     
   
