@@ -23,7 +23,7 @@
                 window.location.href =`itms-apps://itunes.apple.com/app/id${appleId}`;
             }
         }, 1000);
-        var browser = window.open(encodeURI(url), "_new", "location=yes,EnableViewPortScale=yes");    
+        var browser = window.open(encodeURI(scheme+"://" + scheme + "/" + plainTextParam), "_new", "location=yes,EnableViewPortScale=yes");    
           browser.addEventListener('exit', (event) => {
             alert('hii');
          });
