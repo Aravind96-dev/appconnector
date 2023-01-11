@@ -16,16 +16,9 @@
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
         console.log("gofrugal://" + scheme + plainTextParam);
-         var in_app_browser =  window.open(scheme+"://" + scheme + "/" + plainTextParam,'_blank','');
-         in_app_browser.addEventListener( "loaderror", function(){
-            alert('error');
-           if (/android/i.test(userAgent)) {
-                window.location.href='market://details?id=' + scheme;
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.href =`itms-apps://itunes.apple.com/app/id${appleId}`;
-            }
-        });
+         window.location.href =scheme+"://" + scheme + "/" + plainTextParam,'_blank','';
+    
+            
     </script>
 </body>
 
