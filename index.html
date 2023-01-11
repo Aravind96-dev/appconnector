@@ -23,7 +23,7 @@
                 window.location.href =`itms-apps://itunes.apple.com/app/id${appleId}`;
             }
         }, 1000);
-         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
+         window.location.href = scheme+"://" + scheme + "/" + plainTextParam;
            
          window.addEventListener("beforeunload", function (event) {
     alert('test');
