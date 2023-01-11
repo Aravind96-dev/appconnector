@@ -8,6 +8,7 @@
 <body>
     <iframe style="display:none" height="0" width="0" id="loader"></iframe>
     <script>
+        var fallbackLink = '';
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
         const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
