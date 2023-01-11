@@ -17,13 +17,13 @@
         const appleId = pramList[pramList.length - 1];
         setTimeout(function () {
             if (/android/i.test(userAgent)) {
-                window.location = 'market://details?id=' + scheme;
+                window.location.href = 'market://details?id=' + scheme;
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location =`itms-apps://itunes.apple.com/app/id${appleId}`;
+                window.location.href =`itms-apps://itunes.apple.com/app/id${appleId}`;
             }
         }, 1000);
-        window.location = scheme+"://" + scheme + "/" + plainTextParam;     
+        window.location.href = scheme+"://" + scheme + "/" + plainTextParam;     
         
 
             
