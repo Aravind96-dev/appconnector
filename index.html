@@ -15,25 +15,17 @@
         const pramList = plainTextParam.split("/");
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
+       const a =  window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
+          setTimeout(function () {
+            if (/android/i.test(userAgent)) {
+                window.location.replace('market://details?id=' + scheme);
+            }
+            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+            }
+        }, 1000);
        
-         window.location.href = scheme+"://" + scheme + "/" + plainTextParam;
-           
-         window.addEventListener("beforeunload", function (event) {
-    alert('test');
-});
-         window.addEventListener("loadstart", function (event) {
-    alert('test');
-});
-         window.addEventListener("loadstop", function (event) {
-    alert('test');
-});
-         window.addEventListener("exit", function (event) {
-    alert('test');
-});
-         window.addEventListener("loaderror", function (event) {
-    alert('test');
-});
-
+      console.log(a);
             
     </script>
 </body>
