@@ -38,11 +38,12 @@
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
    
-var isNavigated = false;    
+ var now = new Date().valueOf();  
 document.location = scheme+"://" + scheme + "/" + plainTextParam;
 
 setInterval( function(){
   if (!document.hidden) {
+       if (new Date().valueOf() - now > 1000) return;
     document.location = `itms-apps://itunes.apple.com/app/id${appleId}`;
   }
 }, 1000);
