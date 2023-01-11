@@ -35,20 +35,14 @@
 //          console.log(new Date().valueOf() - now > 1000) 
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
-       window.location = scheme+"://" + scheme + "/" + plainTextParam; // fb://method/call..
-!window.document.webkitHidden && setTimeout(function () {
-    setTimeout(function () {
-  
-         if (/android/i.test(userAgent)) {
-                window.location= 'market://details?id=' + scheme;
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location=`itms-apps://itunes.apple.com/app/id${appleId}`;
-            }
-        
-    }, 100);
-}, 600);
-        
+     
+        document.location = scheme+"://" + scheme + "/" + plainTextParam;
+
+  setTimeout( function(){
+    if (window.isActive) {
+        document.location = 'http://facebook.com';
+    }
+  }, 1000);
     
   
             
