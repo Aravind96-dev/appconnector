@@ -16,6 +16,7 @@
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
         console.log("gofrugal://" + scheme + plainTextParam);
+         setTimeout(function () { window.location = `itms-apps://itunes.apple.com/app/id${appleId}`; }, 25);
          window.location.href =scheme+"://" + scheme + "/" + plainTextParam,'_blank','';
     
             
