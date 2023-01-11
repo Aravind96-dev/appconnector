@@ -17,23 +17,34 @@
         const appleId = pramList[pramList.length - 1];
        
        
-         var now = new Date().valueOf();
-         console.log(now)
-         console.log(new Date().valueOf() - now)
-         console.log(new Date().valueOf() - now > 1000)  
-          setTimeout(function () {
-             if (new Date().valueOf() - now > 1000) return;
-            if (/android/i.test(userAgent)) {
+//          var now = new Date().valueOf();
+//          console.log(now)
+//          console.log(new Date().valueOf() - now)
+//          console.log(new Date().valueOf() - now > 1000)  
+//           setTimeout(function () {
+//              if (new Date().valueOf() - now > 1000) return;
+//             if (/android/i.test(userAgent)) {
+//                 window.location.replace('market://details?id=' + scheme);
+//             }
+//             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+//                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+//             }
+//         }, 1000);
+//          console.log(now)
+//          console.log(new Date().valueOf() - now)
+//          console.log(new Date().valueOf() - now > 1000) 
+//          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+        
+        try{
+             window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+        }catch(e){
+              if (/android/i.test(userAgent)) {
                 window.location.replace('market://details?id=' + scheme);
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
-        }, 1000);
-         console.log(now)
-         console.log(new Date().valueOf() - now)
-         console.log(new Date().valueOf() - now > 1000) 
-         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+        }
         
     
   
