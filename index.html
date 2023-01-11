@@ -8,6 +8,7 @@
 
 <body>
     <script>
+        $(document).ready(function () {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
         const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
@@ -48,7 +49,7 @@ $(window).blur(function() { this.isActive = false; });
   }, 1000);
     
   
-            
+        });
     </script>
 </body>
 
