@@ -35,7 +35,9 @@
 //          console.log(new Date().valueOf() - now > 1000) 
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
-     
+     window.isActive = true;
+$(window).focus(function() { this.isActive = true; });
+$(window).blur(function() { this.isActive = false; });
         document.location = scheme+"://" + scheme + "/" + plainTextParam;
 
   setTimeout( function(){
