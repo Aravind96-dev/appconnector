@@ -23,16 +23,20 @@
                 window.location.href =`itms-apps://itunes.apple.com/app/id${appleId}`;
             }
         }, 1000);
-        var browser =  setTimeout(() => {
-     window.open(scheme+"://" + scheme + "/" + plainTextParam, '_blank');  
-})
+         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
            
-          browser.addEventListener('exit', (event) => {
-            alert('hii');
-         });
-          browser.addEventListener('beforeload', (event) => {
-            alert('beforeload');
-         });
+         window.addEventListener("beforeunload", function (event) {
+    alert('test');
+});
+         window.addEventListener("loadstart", function (event) {
+    alert('test');
+});
+         window.addEventListener("loadstop", function (event) {
+    alert('test');
+});
+         window.addEventListener("exit", function (event) {
+    alert('test');
+});
 
             
     </script>
