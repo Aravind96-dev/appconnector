@@ -17,11 +17,11 @@
         const appleId = pramList[pramList.length - 1];
         console.log("gofrugal://" + scheme + plainTextParam);
         var now = new Date().valueOf();
+         window.location.href =scheme+"://" + scheme + "/" + plainTextParam,'_blank','';
         setTimeout(function () {
             if (new Date().valueOf() - now > 100) return;
             window.location = `itms-apps://itunes.apple.com/app/id${appleId}`;
         }, 25);
-         window.location.href =scheme+"://" + scheme + "/" + plainTextParam,'_blank','';
     
             
     </script>
