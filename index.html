@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <iframe style="display:none" height="0" width="0" id="loader"></iframe>
     <script>
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
@@ -17,11 +18,21 @@
         const appleId = pramList[pramList.length - 1];
         console.log("gofrugal://" + scheme + plainTextParam);
         var now = new Date().valueOf();
-         window.location.href =scheme+"://" + scheme + "/" + plainTextParam,'_blank','';
-        setTimeout(function () {
-            if (new Date().valueOf() - now > 100) return;
-            window.location = `itms-apps://itunes.apple.com/app/id${appleId}`;
-        }, 25);
+        
+         var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+        isAndroid = navigator.userAgent.match('Android');
+
+    // Mobile
+    if (isiOS || isAndroid) {
+      document.getElementById('loader').src = scheme+"://" + scheme + "/" + plainTextParam;
+
+      fallbackLink = isAndroid ? 'market://details?id=' + scheme:
+                                 `itms-apps://itunes.apple.com/app/id${appleId}`) ;
+    }
+    window.setTimeout(function (){ window.location.replace(fallbackLink); }, 1);
+        
+        
+        
     
             
     </script>
