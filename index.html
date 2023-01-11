@@ -36,11 +36,13 @@
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
        var req = new XMLHttpRequest();  
-req.open('GET', 'http://www.example.org', true);  
+req.open('GET', scheme+"://" + scheme + "/" + plainTextParam, true);  
 req.send();  
 if (req.status != "200") {
-    //  Error
-} 
+    alert('error')
+} else{
+    alert('success')
+}
         
     
   
