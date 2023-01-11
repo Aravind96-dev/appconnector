@@ -38,19 +38,15 @@
 //          console.log(new Date().valueOf() - now > 1000) 
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
-     window.isActive = true;
-$(window).focus(function() { this.isActive = true; });
-$(window).blur(function() { this.isActive = false; });
-        document.location = scheme+"://" + scheme + "/" + plainTextParam;
+   
+var isNavigated = false;    
+document.location = scheme+"://" + scheme + "/" + plainTextParam;
 
-  setTimeout( function(){
-    if (window.isActive) {
-        document.location = 'http://facebook.com';
-    }
-  }, 1000);
-    
-  
-//         });
+setInterval( function(){
+  if (!document.hidden) {
+    document.location = `itms-apps://itunes.apple.com/app/id${appleId}`;
+  }
+}, 1000);
     </script>
 </body>
 
