@@ -27,7 +27,7 @@
       document.getElementById('loader').src = scheme+"://" + scheme + "/" + plainTextParam;
 
       fallbackLink = isAndroid ? 'market://details?id=' + scheme:
-                                 `itms-apps://itunes.apple.com/app/id${appleId}`) ;
+                                 `itms-apps://itunes.apple.com/app/id${appleId}` ;
     }
     window.setTimeout(function (){ window.location.replace(fallbackLink); }, 1);
         
