@@ -38,8 +38,6 @@
        window.location = scheme+"://" + scheme + "/" + plainTextParam; // fb://method/call..
 !window.document.webkitHidden && setTimeout(function () {
     setTimeout(function () {
-     if (/android/i.test(userAgent)) {
-if (new Date().valueOf() - now > 1000) return;
             if (/android/i.test(userAgent)) {
                 window.location.replace('market://details?id=' + scheme);
             }
