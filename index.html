@@ -28,10 +28,13 @@
          console.log(now)
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000)  
-        console.log(openUrl())
-        if(!openUrl()){
+       
+         window.location = scheme+"://" + scheme + "/" + plainTextParam;   
+         window.close;
+       
           setTimeout(function () {
-              alert('start to navigate')
+              console.log(window.location.pathname)
+              if(window.location.path === '/appconnector/'){
 //              if (new Date().valueOf() - now > 1000) return;
             if (/android/i.test(userAgent)) {
                 window.location.replace('market://details?id=' + scheme);
@@ -39,9 +42,9 @@
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
+              }
 //             window.location.reload();  
         }, 1000);
-        }
 //          console.log(now)
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000) 
