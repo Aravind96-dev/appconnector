@@ -7,14 +7,9 @@
 
 <body>
     <script>
-
-       document.addEventListener("resume", onResume, false);
-        
-        function onResume() {
-    // Handle the resume event
-            alert('webpage resumed');
-}
-    
+        document.addEventListener("visibilitychange", function() {
+         window.location.reload();
+});
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
         const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
@@ -31,27 +26,19 @@
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000)  
        
-//          window.location = scheme+"://" + scheme + "/" + plainTextParam;   
-//          window.close;
+
        
           setTimeout(function () {
               console.log(window.location.pathname)
-//               if(window.location.pathname === '/appconnector/'){
-//                   window.close;
-//              if (new Date().valueOf() - now > 1000) return;
             if (/android/i.test(userAgent)) {
                 window.location.replace('market://details?id=' + scheme);
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
-//               }
-//             window.location.reload();  
         }, 1000);
-//          console.log(now)
-         console.log(new Date().valueOf() - now)
-         console.log(new Date().valueOf() - now > 1000) 
-         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
+        
         
         
         
