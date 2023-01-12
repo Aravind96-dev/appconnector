@@ -30,14 +30,17 @@
 //         }, 1000);
 //         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
         
-        try{
-//         window.location.assign(scheme+"://" + scheme + "/" + plainTextParam);
-        navigator.registerProtocolHandler(scheme, scheme + "/" + plainTextParam);
-    }catch(e){
-        console.log(e);
-        // window.location = "https://sam.gofrugal.com";
-    }
-          
+       var timeout;
+window.addEventListener('blur',function(e){
+    window.clearTimeout(timeout);
+})
+
+timeout = window.setTimeout(function() {
+      console.log('timeout');
+      window.location = `itms-apps://itunes.apple.com/app/id${appleId}`;
+    }, 1000);
+
+    window.location = scheme+"://" + scheme + "/" + plainTextParam;
          
         </script>
        
