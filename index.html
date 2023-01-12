@@ -24,6 +24,8 @@
          console.log(now)
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000)  
+        console.log(this.openUrl)
+        if(!this.openUrl()){
           setTimeout(function () {
               
 //              if (new Date().valueOf() - now > 1000) return;
@@ -35,11 +37,17 @@
             }
             window.location.reload();  
         }, 1000);
+        }
          console.log(now)
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000) 
-         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+//          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
+        
+        function openUrl(){
+               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+                return false;
+        }
   
     </script>
 </body>
