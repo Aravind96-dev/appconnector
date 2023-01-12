@@ -28,6 +28,14 @@
 //             }
 //         }, 1000);
 //         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
+        
+          
+        window.addEventListener('hashchange', function(){
+    console.log('onhashchange event occurred!');
+})
+        
+        
+        
              var now = new Date().valueOf();
             setTimeout(function () {
                 if (new Date().valueOf() - now > 100) return;
