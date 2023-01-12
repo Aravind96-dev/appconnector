@@ -18,6 +18,9 @@
         const pramList = plainTextParam.split("/");
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
+        document.addEventListener("visibilitychange", function() {
+          window.close();
+});
 //         setTimeout(function () {
 //               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
 //             if (/android/i.test(userAgent)) {
@@ -37,10 +40,10 @@
                 setTimeout(function() {
                     // Link to the App Store should go here -- only fires if deep link fails
                   
-                    window.location = "itms-apps://itunes.apple.com/app/id"+appleId;
+//                     window.location = "itms-apps://itunes.apple.com/app/id"+appleId;
+                      window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self");
                     
                 }, 1000);
-                      window.close();
             };
         </script>
        
