@@ -8,6 +8,10 @@
 <body>
     <script>
 
+        function openUrl(){
+               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+                return false;
+        }
     
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
@@ -24,8 +28,8 @@
          console.log(now)
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000)  
-        console.log(this.openUrl)
-        if(!this.openUrl()){
+        console.log(openUrl())
+        if(!openUrl()){
 //           setTimeout(function () {
               
 //              if (new Date().valueOf() - now > 1000) return;
@@ -44,10 +48,7 @@
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
         
         
-        function openUrl(){
-               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
-                return false;
-        }
+        
   
     </script>
 </body>
