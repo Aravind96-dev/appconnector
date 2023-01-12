@@ -32,15 +32,20 @@
         
        var timeout;
 window.addEventListener('blur',function(e){
+    alert('blut')
     window.clearTimeout(timeout);
 })
 
-timeout = window.setTimeout(function() {
-      console.log('timeout');
-      window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-    }, 500);
-
-    window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
+timeout = setTimeout(function () {
+              window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
+            if (/android/i.test(userAgent)) {
+                window.location.replace('market://details?id=' + scheme);
+            }
+            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+            }
+        }, 1000);
+        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
          
         </script>
        
