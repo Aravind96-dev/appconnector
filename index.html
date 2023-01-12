@@ -45,7 +45,8 @@
              
               document.addEventListener("visibilitychange", function() {
        if(document.visibilityState == 'hidden') {
-           window.close();
+            window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self");
+            window.close();
     } else {
         // page is visible
     }
