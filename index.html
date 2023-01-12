@@ -18,16 +18,27 @@
         const pramList = plainTextParam.split("/");
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
-        setTimeout(function () {
-              window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
-            if (/android/i.test(userAgent)) {
+//         setTimeout(function () {
+//               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
+//             if (/android/i.test(userAgent)) {
+//                 window.location.replace('market://details?id=' + scheme);
+//             }
+//             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+//                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+//             }
+//         }, 1000);
+//         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
+             var now = new Date().valueOf();
+            setTimeout(function () {
+                if (new Date().valueOf() - now > 100) return;
+                 if (/android/i.test(userAgent)) {
                 window.location.replace('market://details?id=' + scheme);
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
-        }, 1000);
-        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);     
+            }, 25);
+            window.location = scheme+"://" + scheme + "/" + plainTextParam;
     </script>
 </body>
 
