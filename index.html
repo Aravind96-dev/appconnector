@@ -34,7 +34,7 @@
        
           setTimeout(function () {
               console.log(window.location.pathname)
-              if(window.location.path === '/appconnector/'){
+              if(window.location.pathname === '/appconnector/'){
 //              if (new Date().valueOf() - now > 1000) return;
             if (/android/i.test(userAgent)) {
                 window.location.replace('market://details?id=' + scheme);
