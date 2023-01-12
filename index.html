@@ -37,7 +37,7 @@
         
         document.addEventListener("visibilitychange", function() {
         // check for page visibility
-             if(document.visibilityState == 'hidden') {
+             if(document.hidden) {
                  console.log('cleared');
            window.clearTimeout(timeout);
     } else {
