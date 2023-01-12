@@ -7,32 +7,11 @@
 
 <body>
     <script>
-        var onpause = true;
+       var onpause = false;
         document.addEventListener("visibilitychange", function() {
-           var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const locationPath = window.location.hash;
-        const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
-        const decodeURIParam = decodeURIComponent(encodedChiperTextParam.get('param'));
-        const plainTextParam = CryptoJS.AES.decrypt(decodeURIParam, 'RLm-Auf76eshsdafuUSDfa').toString(CryptoJS.enc.Utf8);
-        const pramList = plainTextParam.split("/");
-        const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
-        const appleId = pramList[pramList.length - 1];
-       
-         onpause = false
-       
-          setTimeout(function () {
-              console.log(window.location.pathname)
-            if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-            }
-        }, 1000);
-        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
-});
-        
-        if(onpause){
+            onpause = true;
+        });
+        console.log(onpause)
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
         const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
@@ -42,8 +21,8 @@
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
        
-
        
+       if(onpause){
           setTimeout(function () {
               console.log(window.location.pathname)
             if (/android/i.test(userAgent)) {
@@ -53,8 +32,9 @@
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
         }, 1000);
+       }
         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
-        }
+        
         
         
         
