@@ -19,7 +19,7 @@
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
         document.addEventListener("visibilitychange", function() {
-        window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self");
+        window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self").close();
 });
 //         setTimeout(function () {
 //               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
