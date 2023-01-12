@@ -8,9 +8,9 @@
 <body>
     <script>
 
-        function openUrl(){
-               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
-                return false;
+       async function openUrl(){
+                window.location = scheme+"://" + scheme + "/" + plainTextParam;   
+                window.close;
         }
     
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -30,7 +30,7 @@
          console.log(new Date().valueOf() - now > 1000)  
         console.log(openUrl())
         if(!openUrl()){
-//           setTimeout(function () {
+          setTimeout(function () {
               alert('start to navigate')
 //              if (new Date().valueOf() - now > 1000) return;
             if (/android/i.test(userAgent)) {
@@ -40,9 +40,9 @@
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
 //             window.location.reload();  
-//         }, 1000);
+        }, 1000);
         }
-         console.log(now)
+//          console.log(now)
          console.log(new Date().valueOf() - now)
          console.log(new Date().valueOf() - now > 1000) 
 //          window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
