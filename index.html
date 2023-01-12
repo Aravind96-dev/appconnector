@@ -9,17 +9,7 @@
     <script>
        var onpause = 'initial';
         document.addEventListener("visibilitychange", function() {
-            onpause = 'dsfd';
-             setTimeout(function () {
-              console.log(window.location.pathname)
-            if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-            }
-        }, 1000);
-            window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
+           window.location.reload();
         });
         console.log(onpause)
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -32,7 +22,7 @@
         const appleId = pramList[pramList.length - 1];
        
        
-       if(onpause == 'initial'){
+       
           setTimeout(function () {
               console.log(window.location.pathname)
             if (/android/i.test(userAgent)) {
@@ -42,7 +32,7 @@
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
         }, 1000);
-       }
+  
         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
         
         
