@@ -18,11 +18,7 @@
         const pramList = plainTextParam.split("/");
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
-        document.addEventListener("visibilitychange", function() {
-       setTimeout(function() {
-        window.open('about:blank', '_self').close();
-    }, 100);
-});
+       
 //         setTimeout(function () {
 //               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
 //             if (/android/i.test(userAgent)) {
@@ -46,6 +42,14 @@
                       window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self");
                     
                 }, 1000);
+             
+              document.addEventListener("visibilitychange", function() {
+       if(document.visibilityState == 'hidden') {
+           window.close();
+    } else {
+        // page is visible
+    }
+});
             };
         </script>
        
