@@ -26,7 +26,7 @@
          console.log(new Date().valueOf() - now > 1000)  
         console.log(this.openUrl)
         if(!this.openUrl()){
-          setTimeout(function () {
+//           setTimeout(function () {
               
 //              if (new Date().valueOf() - now > 1000) return;
             if (/android/i.test(userAgent)) {
@@ -35,8 +35,8 @@
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
-            window.location.reload();  
-        }, 1000);
+//             window.location.reload();  
+//         }, 1000);
         }
          console.log(now)
          console.log(new Date().valueOf() - now)
