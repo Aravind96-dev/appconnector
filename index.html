@@ -36,12 +36,11 @@
 
                 setTimeout(function() {
                     // Link to the App Store should go here -- only fires if deep link fails
-              
-                    window.close();
-                    alert('appclose');
+                  
                     window.location = "itms-apps://itunes.apple.com/app/id"+appleId;
                     
                 }, 1000);
+                      window.close();
             };
         </script>
        
