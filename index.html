@@ -30,23 +30,17 @@
 //         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
         
           
-        window.addEventListener('hashchange', function(){
-    console.log('onhashchange event occurred!');
-})
-        
-        
-        
-             var now = new Date().valueOf();
-            setTimeout(function () {
-                if (new Date().valueOf() - now > 100) return;
-                 if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-            }
-            }, 25);
-            window.location = scheme+"://" + scheme + "/" + plainTextParam;
+         window.onload = function() {
+                // Deep link to your app goes here
+                document.getElementById("l").src = "scheme+"://" + scheme + "/" + plainTextParam";
+
+                setTimeout(function() {
+                    // Link to the App Store should go here -- only fires if deep link fails                
+                    window.location = "itms-apps://itunes.apple.com/app/id"+appleId;
+                }, 500);
+            };
+        </script>
+        <iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
     </script>
 </body>
 
