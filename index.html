@@ -31,9 +31,18 @@
 //         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
         
        var timeout;
-window.addEventListener('blur',function(e){
-    window.clearTimeout(timeout);
-})
+// window.addEventListener('blur',function(e){
+//     window.clearTimeout(timeout);
+// })
+        
+        document.addEventListener("visibilitychange", function() {
+        // check for page visibility
+             if(document.visibilityState == 'hidden') {
+           window.clearTimeout(timeout);
+    } else {
+         console.log('visible');
+    }
+    });
 
 timeout = setTimeout(function () {
             if (/android/i.test(userAgent)) {
