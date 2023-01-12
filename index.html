@@ -9,9 +9,10 @@
     <script>
        var onpause = 'initial';
         document.addEventListener("visibilitychange", function() {
-           window.location.reload();
+           closeOpenedWindow();
         });
-        console.log(onpause)
+        console.log(onpause);
+        let openedWindow;
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
         const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
@@ -26,12 +27,19 @@
           setTimeout(function () {
               console.log(window.location.pathname)
             if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
+            
+               openedWindow = window.open('market://details?id=' + scheme);
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+               
+                 openedWindow = window.open(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
         }, 1000);
+        
+        
+        function closeOpenedWindow() {
+  openedWindow.close();
+}
   
         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);
         
