@@ -30,31 +30,47 @@
 //         }, 1000);
 //         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
         
-       var timeout;
+//        var timeout;
 // window.addEventListener('blur',function(e){
 //     window.clearTimeout(timeout);
 // })
         
-        document.addEventListener("visibilitychange", function() {
-        // check for page visibility
-             if(document.hidden) {
-                 console.log('cleared');
-           window.clearTimeout(timeout);
-    } else {
-         console.log('visible');
-    }
-    });
+//         document.addEventListener("visibilitychange", function() {
+//         // check for page visibility
+//              if(document.hidden) {
+//                  console.log('cleared');
+//            window.clearTimeout(timeout);
+//     } else {
+//          console.log('visible');
+//     }
+//     });
 
-timeout = setTimeout(function () {
-            if (/android/i.test(userAgent)) {
-                window.location = 'market://details?id=' + scheme;
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location =`itms-apps://itunes.apple.com/app/id${appleId}`;
-            }
-        }, 1000);
-        window.location =scheme+"://" + scheme + "/" + plainTextParam;   
+// timeout = setTimeout(function () {
+//             if (/android/i.test(userAgent)) {
+//                 window.location = 'market://details?id=' + scheme;
+//             }
+//             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+//                 window.location =`itms-apps://itunes.apple.com/app/id${appleId}`;
+//             }
+//         }, 1000);
+//         window.location =scheme+"://" + scheme + "/" + plainTextParam;   
          
+        
+        var change = false;
+setTimeout(() => {
+  if (!change) {
+    var redirectUrl = `itms-apps://itunes.apple.com/app/id${appleId}`;
+    window.location = redirectUrl;
+  }
+}, 3000);
+window.location = scheme+"://" + scheme + "/" + plainTextParam;
+//handle event to check app installed or not
+window.onblur = function () {
+    change = true;
+};
+window.onfocus = function(){
+    change = false;
+}
         </script>
        
     </script>
