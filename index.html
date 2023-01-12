@@ -32,15 +32,17 @@
           
          window.onload = function() {
                 // Deep link to your app goes here
-                document.getElementById("l").src =scheme+"://" + scheme + "/" + plainTextParam;
+                 window.location =scheme+"://" + scheme + "/" + plainTextParam;
 
                 setTimeout(function() {
-                    // Link to the App Store should go here -- only fires if deep link fails                
+                    // Link to the App Store should go here -- only fires if deep link fails
+                    window.close();
                     window.location = "itms-apps://itunes.apple.com/app/id"+appleId;
-                }, 500);
+                    
+                }, 1000);
             };
         </script>
-        <iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
+       
     </script>
 </body>
 
