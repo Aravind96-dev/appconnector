@@ -30,28 +30,15 @@
 //         }, 1000);
 //         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
         
-          
-         window.onload = function() {
-                // Deep link to your app goes here
-                window.open(scheme+"://" + scheme + "/" + plainTextParam, "_self");
-
-                setTimeout(function() {
-                    // Link to the App Store should go here -- only fires if deep link fails
-                  
-//                     window.location = "itms-apps://itunes.apple.com/app/id"+appleId;
-                      window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self");
-                    
-                }, 1000);
-             
-              document.addEventListener("visibilitychange", function() {
-       if(document.visibilityState == 'hidden') {
-            window.open("itms-apps://itunes.apple.com/app/id"+appleId, "_self");
-            window.close();
-    } else {
-        // page is visible
+        try{
+//         window.location.assign(scheme+"://" + scheme + "/" + plainTextParam);
+        navigator.registerProtocolHandler(scheme, scheme + "/" + plainTextParam);
+    }catch(e){
+        console.log(e);
+        // window.location = "https://sam.gofrugal.com";
     }
-});
-            };
+          
+         
         </script>
        
     </script>
