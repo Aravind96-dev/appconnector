@@ -32,24 +32,18 @@
         
        var timeout;
 window.addEventListener('blur',function(e){
-     if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-            }
     window.clearTimeout(timeout);
 })
 
 timeout = setTimeout(function () {
             if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
+                window.location = 'market://details?id=' + scheme;
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+                window.location =`itms-apps://itunes.apple.com/app/id${appleId}`;
             }
         }, 1000);
-        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);   
+        window.location =scheme+"://" + scheme + "/" + plainTextParam;   
          
         </script>
        
