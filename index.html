@@ -19,16 +19,17 @@
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
        
-//         setTimeout(function () {
-//               window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
-//             if (/android/i.test(userAgent)) {
-//                 window.location.replace('market://details?id=' + scheme);
-//             }
-//             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-//                 window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
-//             }
-//         }, 1000);
-//         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
+        setTimeout(function () {
+              window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
+            if (/android/i.test(userAgent)) {
+                window.location.replace('market://details?id=' + scheme);
+            }
+            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+            }
+        }, 1000);
+        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
+        window.onbeforeunload = null;
         
 //        var timeout;
 // window.addEventListener('blur',function(e){
@@ -56,21 +57,21 @@
 //         window.location =scheme+"://" + scheme + "/" + plainTextParam;   
          
         
-        var change = false;
-setTimeout(() => {
-  if (!change) {
-    var redirectUrl = `itms-apps://itunes.apple.com/app/id${appleId}`;
-    window.location = redirectUrl;
-  }
-}, 3000);
-window.location = scheme+"://" + scheme + "/" + plainTextParam;
-//handle event to check app installed or not
-window.onblur = function () {
-    change = true;
-};
-window.onfocus = function(){
-    change = false;
-}
+//         var change = false;
+// setTimeout(() => {
+//   if (!change) {
+//     var redirectUrl = `itms-apps://itunes.apple.com/app/id${appleId}`;
+//     window.location = redirectUrl;
+//   }
+// }, 3000);
+// window.location = scheme+"://" + scheme + "/" + plainTextParam;
+// //handle event to check app installed or not
+// window.onblur = function () {
+//     change = true;
+// };
+// window.onfocus = function(){
+//     change = false;
+// }
         </script>
        
     </script>
