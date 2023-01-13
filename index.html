@@ -10,7 +10,9 @@
 
 <body>
     <script>
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+      function openApp(){
+          var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
         const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
         const decodeURIParam = decodeURIComponent(encodedChiperTextParam.get('param'));
@@ -29,8 +31,8 @@
             }
         }, 1000);
         window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
-        window.onbeforeunload = null;
-        
+      }
+      
 //        var timeout;
 // window.addEventListener('blur',function(e){
 //     window.clearTimeout(timeout);
@@ -72,9 +74,13 @@
 // window.onfocus = function(){
 //     change = false;
 // }
-        </script>
+       
        
     </script>
+    
+    <button type="button"
+onclick="openApp()">
+OpenApp</button>
 </body>
 
 </html>
