@@ -21,15 +21,15 @@
         const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
         const appleId = pramList[pramList.length - 1];
        
-        setTimeout(function () {
-            if (/android/i.test(userAgent)) {
-                window.location.assign('market://details?id=' + scheme);
-            }
-            if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.assign(`itms-apps://itunes.apple.com/app/id${appleId}`);
-            }
-        }, 1000);
-        window.location.assign(scheme+"://" + scheme + "/" + plainTextParam);    
+//         setTimeout(function () {
+//             if (/android/i.test(userAgent)) {
+//                 window.location.assign('market://details?id=' + scheme);
+//             }
+//             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
+//                 window.location.assign(`itms-apps://itunes.apple.com/app/id${appleId}`);
+//             }
+//         }, 1000);
+        window.open(scheme+"://" + scheme + "/" + plainTextParam,'_self');    
       }
       
 //        var timeout;
