@@ -5,7 +5,6 @@
     <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-    <meta name="apple-itunes-app" content="app-id=com.gofrugal.tiecatalyst, affiliate-data=myAffiliateData, app-argument=com.gofrugal.tiecatalyst://com.gofrugal.tiecatalyst/explore/lmgft/16/16/tiecatalyst/1615539302">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 </head>
 
@@ -23,15 +22,14 @@
         const appleId = pramList[pramList.length - 1];
        
         setTimeout(function () {
-              window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);  
             if (/android/i.test(userAgent)) {
-                window.location.replace('market://details?id=' + scheme);
+                window.location.assign('market://details?id=' + scheme);
             }
             if (/(ipad|iphone|ipod)/.test(navigator.userAgent.toLowerCase())) {
-                window.location.replace(`itms-apps://itunes.apple.com/app/id${appleId}`);
+                window.location.assign(`itms-apps://itunes.apple.com/app/id${appleId}`);
             }
         }, 1000);
-        window.location.replace(scheme+"://" + scheme + "/" + plainTextParam);    
+        window.location.assign(scheme+"://" + scheme + "/" + plainTextParam);    
       }
       
 //        var timeout;
