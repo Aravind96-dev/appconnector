@@ -11,16 +11,7 @@
 <body>
     <script>
         
-         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const locationPath = window.location.hash;
-        const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
-        const decodeURIParam = decodeURIComponent(encodedChiperTextParam.get('param'));
-        const plainTextParam = CryptoJS.AES.decrypt(decodeURIParam, 'RLm-Auf76eshsdafuUSDfa').toString(CryptoJS.enc.Utf8);
-        const pramList = plainTextParam.split("/");
-        const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
-        const appleId = pramList[pramList.length - 1];
-        
-        window.location =scheme+"://" + scheme + "/" + plainTextParam;   
+       
         
       function openApp(){
           var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -84,7 +75,22 @@
 // window.onfocus = function(){
 //     change = false;
 // }
+         function init() {
+             alert('init success')
+        // Put your code here
+               var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const locationPath = window.location.hash;
+        const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
+        const decodeURIParam = decodeURIComponent(encodedChiperTextParam.get('param'));
+        const plainTextParam = CryptoJS.AES.decrypt(decodeURIParam, 'RLm-Auf76eshsdafuUSDfa').toString(CryptoJS.enc.Utf8);
+        const pramList = plainTextParam.split("/");
+        const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
+        const appleId = pramList[pramList.length - 1];
+        
+        window.location =scheme+"://" + scheme + "/" + plainTextParam;   
+    }
        
+        window.onload = init;
        
     </script>
     
