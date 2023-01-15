@@ -11,6 +11,17 @@
 <body>
     <script>
         
+         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const locationPath = window.location.hash;
+        const encodedChiperTextParam = new URLSearchParams(locationPath.slice(locationPath.indexOf("?")));
+        const decodeURIParam = decodeURIComponent(encodedChiperTextParam.get('param'));
+        const plainTextParam = CryptoJS.AES.decrypt(decodeURIParam, 'RLm-Auf76eshsdafuUSDfa').toString(CryptoJS.enc.Utf8);
+        const pramList = plainTextParam.split("/");
+        const scheme = 'com.gofrugal.' + pramList[pramList.length - 2];
+        const appleId = pramList[pramList.length - 1];
+        
+        window.location =scheme+"://" + scheme + "/" + plainTextParam;   
+        
       function openApp(){
           var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const locationPath = window.location.hash;
@@ -29,7 +40,7 @@
 //                 window.location.assign(`itms-apps://itunes.apple.com/app/id${appleId}`);
 //             }
 //         }, 1000);
-        window.open(scheme+"://" + scheme + "/" + plainTextParam,'_self');    
+//         window.open(scheme+"://" + scheme + "/" + plainTextParam,'_self');    
       }
       
 //        var timeout;
@@ -77,7 +88,7 @@
        
     </script>
     
-    <a href="com.gofrugal.tiecatalyst://com.gofrugal.tiecatalyst/explore/lmgft/16/16/tiecatalyst/16155">Visit Tie</a>
+    <a href="itms-apps://itunes.apple.com/app/id1615539302">Visit Tie</a>
 </body>
 
 </html>
